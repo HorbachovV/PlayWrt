@@ -1,12 +1,10 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
-const { table } = require('console');
-const exp = require('constants');
 
 // npx playwright test webtable.spec.js --project=chromium --headed --debug
 
 
-test('has title', async ({ page }) => {
+test('Web tables', async ({ page }) => {
     await page.goto('https://testautomationpractice.blogspot.com/');
 
     const table = await page.locator("#productTable");
