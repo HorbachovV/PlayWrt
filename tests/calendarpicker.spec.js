@@ -25,7 +25,8 @@ test('Date picker', async ({ page }) => {
        await page.locator("[title='Next']").click();
     }
 
-    const dates = await page.$$("//a[@class='ui-state-default']");
+    // const dates = await page.$$("//a[@class='ui-state-default']");
+    const dates = await page.locator("//a[@class='ui-state-default']").all();
 
     for(let date of dates) {
         
