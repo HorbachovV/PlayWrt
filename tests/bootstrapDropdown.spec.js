@@ -13,8 +13,19 @@ test('bootstrap dropdown', async ( {page} ) => {
     // const options = await page.$$("ul>li label input");
     // await expect(options.length).toBe(11);
     
-    const options = await page.$$("ul>li label");
+    // const options = await page.$$("ul>li label");
+    // for (let option of options) {
+    //     const value = await option.textContent();
+    //     console.log("Value is: ", value);
+
+    //     if (value.includes("Angular") || value.includes("Java")) {
+    //         await option.click();
+    //     }
+    // }
+
+    const options = await page.locator("ul>li label").all()
     for (let option of options) {
+
         const value = await option.textContent();
         console.log("Value is: ", value);
 
