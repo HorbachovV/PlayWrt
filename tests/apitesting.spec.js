@@ -2,16 +2,18 @@ const {test, expect} = require('@playwright/test');
 
 // npx playwright test apitesting.spec.js --project=chromium --headed --debug
 
-test('API testing: GET', async ( {request} ) => {
+test.only('API testing: GET', async ( {request} ) => {
     
-   const response = await request.get('https://reqres.in/api/users?page=2');
+   const response = await request.get('https://reqres.in/api/users/2');
 
-//    console.log(await response.json())
-   expect(response.status()).toBe(200)
+   const userName = await response.json();
+//    console.log(await response.json());
+   expect(userName.data.first_name).toBe('Janet');
+   expect(response.status()).toBe(200);
 
 });
 
-test.only('API testing: POST', async ( {request} ) => {
+test('API testing: POST', async ( {request} ) => {
 
     const user = {
         "name": "morpheus",
